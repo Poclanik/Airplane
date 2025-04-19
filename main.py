@@ -2,6 +2,7 @@ import pygame
 
 from src.constants import MAX_FPS, DISPLAY_SIZE, SHOOT_EVENT
 from src.Player import Player
+from src.enemy import Enemy
 
 def game(display, clock):
     coords = DISPLAY_SIZE[0] / 2, DISPLAY_SIZE[1] - 50
@@ -9,18 +10,38 @@ def game(display, clock):
     image.fill( (255, 0, 0,) )
     player = Player(image, coords, 4, 100)
 
+    bullet_image = pygame.Surface([20, 20])
+    bullet_image.fill('green')
+    bullets = list()
+
+    enemies = list()
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()
             elif event.type == SHOOT_EVENT:
-                print(1)
+                b = Bullet(
+                    bullet_image,
+                    play.rect.midtop,
+                    10
+                )
+                bullets.append(b)
+
                 
         player.update()
+        for b in bullets.copy():
+            b.update()
+            if not i.alive:
+                bullets.remove(i)
+
 
         display.fill( (0, 0, 0) )
-
+    
         player.render(display)
+        for a in bullets:
+            a.render(display)
+            
         pygame.display.update()
         clock.tick(MAX_FPS)
 
