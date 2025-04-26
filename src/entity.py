@@ -1,3 +1,6 @@
+import pygame
+
+
 class Entity:
     def __init__(self, image, coords, speed):
         self.image = image.copy()

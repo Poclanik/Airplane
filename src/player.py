@@ -1,7 +1,7 @@
 import pygame
 
 from .entity import Entity
-from .constants import constants
+from .constants import SHOOT_EVENT
 
 
 
@@ -29,5 +29,5 @@ class Player(Entity):
                 self.move(self.speed, 0 )
 
         just_pressed_keys = pygame.key.get_just_pressed()
-        if just_pressed_keys[pygame.k_SPACE]:
-            pygame.event.post(pygame.event())
+        if just_pressed_keys[pygame.K_SPACE]:
+            pygame.event.post(pygame.Event(SHOOT_EVENT))
