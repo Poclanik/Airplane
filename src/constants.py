@@ -6,3 +6,12 @@ DISPLAY_SIZE = 800, 600
 SHOOT_EVENT = pygame.event.custom_type()
 SPAWN_EVENT = pygame.event.custom_type()
 
+HEALTH_BAR_WIDTH = 150
+PLAYER_HEALTH = 100
+PLATER_SPEED = 7.5
+
+ENEMY_DAMAGE = 10
+ENEMY_SPEED = 5
+
+BULLET_SPEED = 10
+

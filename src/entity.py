@@ -21,5 +21,5 @@ class Entity:
     def move(self, x, y):
         self.rect.move_ip(x, y)
 
-    def collige_entity(self, other):
+    def collide_entity(self, other):
         return pygame.sprite.collide_mask(self, other)
