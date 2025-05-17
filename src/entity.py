@@ -17,7 +17,7 @@ class Entity:
 
     def kill(self):
         self.alive = False
-    
+
     def move(self, x, y):
         self.rect.move_ip(x, y)
 

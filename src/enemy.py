@@ -11,4 +11,3 @@ class Enemy(Entity):
         self.move(0, self.speed)
         if self.rect.top >= DISPLAY_SIZE[1]:
             self.kill()
-            

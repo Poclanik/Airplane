@@ -1,8 +1,7 @@
 import pygame
 
 from .entity import Entity
-from .constants import SHOOT_EVENT
-
+from .constants import SHOOT_EVENT, DISPLAY_SIZE
 
 
 class Player(Entity):
@@ -24,10 +23,19 @@ class Player(Entity):
 
         if left != right:
             if left:
-                self.move(-self.speed, 0 )
+                self.move(-self.speed, 0)
             else:
-                self.move(self.speed, 0 )
+                self.move(self.speed, 0)
 
         just_pressed_keys = pygame.key.get_just_pressed()
         if just_pressed_keys[pygame.K_SPACE]:
             pygame.event.post(pygame.Event(SHOOT_EVENT))
+
+    def move(self, x, y):
+        super().move(x, y)
+
+        if self.rect.left < 0:
+            self.rect.left = 0
+
+        if self.rect.right > DISPLAY_SIZE[0]:
+            self.rect.right = DISPLAY_SIZE[0]
